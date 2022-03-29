@@ -11,6 +11,19 @@
 - #BDB2FF
 - #FFC6FF
 
+## Estrutura da Página
+- Cabeçalho
+  - Nome do jogo
+  - Instruções
+  - interface de interação
+  - placar
+  - Infos dos criadores
+- Tela principal
+  - Jogo
+    - Botões coloridos
+    - Painel de interação
+    - Resumo da partida
+
 ## Fluxo da Aplicação
 > Página foi acessada
 - Carregar:

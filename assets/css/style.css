@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&family=Ubuntu:wght@300;700&display=swap");
+
+/*
+    font-family: 'Righteous', cursive;
+    font-family: 'Ubuntu', sans-serif;
+*/
+
+/* Resets + General */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  background-color: #fffffc;
+}
+
+button {
+  border: none;
+}
+
+/* HEADER */
+
+header {
+  /* height: 25vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* box-sizing: border-box; */
+  border: 1px solid black;
+}
+
+header h1 {
+  margin: 1%;
+  font-size: 5rem;
+  font-family: "Righteous", cursive;
+}
+
+#instructions {
+  width: 50%;
+  margin: 1%;
+}
+
+#user-interaction {
+  width: 50%;
+  margin: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#user-interaction > div {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#user-interaction button {
+  padding: 3%;
+  font-family: "Ubuntu", sans-serif;
+}
+
+header > div {
+  width: 100%;
+  margin: 1%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#score-board {
+  width: 20%;
+  text-align: center;
+}
+
+#about {
+  width: 20%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* MAIN */
+#summary button {
+  padding: 1%;
+  font-family: "Ubuntu", sans-serif;
+}

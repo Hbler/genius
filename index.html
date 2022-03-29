@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>GENIUS | Débora Silva + Hugo Bler</title>
+  </head>
+  <body>
+    <header>
+      <h1>GENIUS</h1>
+      <section id="instructions">
+        <p>
+          Selecione a dificuldade e precione “Iniciar” preste atenção na(s)
+          cor(es) e na ordem que aparece(m), repita a sequência exibida
+          corretamente para seguir para a próxima rodada.
+        </p>
+      </section>
+      <section id="user-interaction">
+        <div>
+          <button id="start">Iniciar</button>
+          <button id="reset">Zerar Placar</button>
+        </div>
+      </section>
+      <div>
+        <section id="score-board">Pontos: 00</section>
+        <section id="about">
+          <p><a href="#">Débora Silva</a></p>
+          <p><a href="https://linkedin.com/in/hbler">Hugo Bler</a></p>
+        </section>
+      </div>
+    </header>
+    <main>
+      <section id="game">
+        <div id="summary">
+          <button id="try">Tentar Novamente</button>
+          <button id="new">Zerar Placar</button>
+        </div>
+        <div id="c-one" class="normal"></div>
+        <div id="c-two" class="normal"></div>
+        <div id="c-thr" class="normal"></div>
+        <div id="c-fou" class="normal"></div>
+      </section>
+    </main>
+    <script type="module" src="./assets/module/main.js"></script>
+  </body>
+</html>
