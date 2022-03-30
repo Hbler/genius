@@ -8,41 +8,75 @@
     <title>GENIUS | Débora Silva + Hugo Bler</title>
   </head>
   <body>
-    <header>
-      <h1>GENIUS</h1>
-      <section id="instructions">
-        <p>
-          Selecione a dificuldade e precione “Iniciar” preste atenção na(s)
-          cor(es) e na ordem que aparece(m), repita a sequência exibida
-          corretamente para seguir para a próxima rodada.
-        </p>
-      </section>
-      <section id="user-interaction">
-        <div>
-          <button id="start">Iniciar</button>
-          <button id="reset">Zerar Placar</button>
-        </div>
-      </section>
-      <div>
+    <div id="page">
+      <header>
+        <h1>GENIUS</h1>
+        <section id="instructions">
+          <p>
+            Selecione a dificuldade e precione “Iniciar” preste atenção na(s)
+            cor(es) e na ordem que aparece(m), repita a sequência exibida
+            corretamente para seguir para a próxima rodada.
+          </p>
+        </section>
+        <section id="user-interaction">
+          <div>
+            <div>
+              <input
+                type="radio"
+                name="difficulty"
+                id="normal"
+                value="normal"
+                checked
+              />
+              <label for="normal">Normal</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="difficulty"
+                id="medium"
+                value="medium"
+              />
+              <label for="medium">Médio</label>
+            </div>
+            <div>
+              <input type="radio" name="difficulty" id="hard" value="hard" />
+              <label for="hard">Difícil</label>
+            </div>
+          </div>
+          <div>
+            <button id="start">Iniciar</button>
+            <button id="reset">Zerar Placar</button>
+          </div>
+        </section>
         <section id="score-board">Pontos: 00</section>
         <section id="about">
           <p><a href="#">Débora Silva</a></p>
           <p><a href="https://linkedin.com/in/hbler">Hugo Bler</a></p>
         </section>
-      </div>
-    </header>
-    <main>
-      <section id="game">
-        <div id="summary">
-          <button id="try">Tentar Novamente</button>
-          <button id="new">Zerar Placar</button>
-        </div>
-        <div id="c-one" class="normal"></div>
-        <div id="c-two" class="normal"></div>
-        <div id="c-thr" class="normal"></div>
-        <div id="c-fou" class="normal"></div>
-      </section>
-    </main>
+      </header>
+      <main>
+        <section id="game">
+          <div id="summary" class="clear">
+            <button id="try">Tentar Novamente</button>
+            <button id="new">Zerar Placar</button>
+          </div>
+          <div id="board" class="normal">
+            <div id="c-one"></div>
+            <div id="c-two"></div>
+            <div id="c-thr"></div>
+            <div id="c-fou"></div>
+            <div class="center">
+              <div class="circle"></div>
+            </div>
+            <div id="c-fiv"></div>
+            <div id="c-six"></div>
+            <div id="c-sev"></div>
+            <div id="c-eig"></div>
+          </div>
+        </section>
+      </main>
+    </div>
     <script type="module" src="./assets/module/main.js"></script>
   </body>
 </html>

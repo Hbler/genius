@@ -5,15 +5,33 @@
     font-family: 'Ubuntu', sans-serif;
 */
 
-/* Resets + General */
+/* Resets + General + vars */
 * {
   margin: 0;
   padding: 0;
 }
 
+:root {
+  --red: #ffadad;
+  --ora: #ffd6a5;
+  --yel: #fdffb6;
+  --gre: #caffbf;
+  --tea: #9bf6ff;
+  --blu: #a0c4ff;
+  --pur: #bdb2ff;
+  --pin: #ffc6ff;
+}
+
 body {
   font-family: "Ubuntu", sans-serif;
   background-color: #fffffc;
+}
+
+#page {
+  width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+  display: flex;
 }
 
 button {
@@ -23,36 +41,50 @@ button {
 /* HEADER */
 
 header {
-  /* height: 25vh; */
+  height: 100vh;
+  width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  /* box-sizing: border-box; */
-  border: 1px solid black;
+  justify-content: space-around;
+  box-sizing: border-box;
+  box-shadow: 10px 1px 15px 0px #bebebe9f;
+  -webkit-box-shadow: 10px 1px 15px 0px #bebebe9f;
+  -moz-box-shadow: 10px 1px 15px 0px #bebebe9f;
 }
 
 header h1 {
   margin: 1%;
-  font-size: 5rem;
+  font-size: 3rem;
   font-family: "Righteous", cursive;
 }
 
 #instructions {
-  width: 50%;
+  width: 80%;
   margin: 1%;
 }
 
 #user-interaction {
-  width: 50%;
+  width: 80%;
   margin: 1%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#user-interaction > div {
+#user-interaction div {
+  width: 80%;
+  margin: 3% 0;
+  display: flex;
+  align-items: center;
+}
+
+#user-interaction div label {
   width: 50%;
+  margin: 0 5%;
+}
+
+#user-interaction > div:nth-child(2) {
   display: flex;
   justify-content: space-between;
 }
@@ -62,26 +94,126 @@ header h1 {
   font-family: "Ubuntu", sans-serif;
 }
 
-header > div {
-  width: 100%;
-  margin: 1%;
-  display: flex;
-  justify-content: space-between;
-}
-
 #score-board {
   width: 20%;
   text-align: center;
 }
 
 #about {
-  width: 20%;
+  width: 80%;
   display: flex;
   justify-content: space-evenly;
 }
 
 /* MAIN */
+main {
+  width: 70%;
+}
+
+#game {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #summary button {
   padding: 1%;
   font-family: "Ubuntu", sans-serif;
+  position: absolute;
+}
+
+#board {
+  width: 70%;
+  height: 90vh;
+  margin: auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.normal {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "c-fou c-fou c-thr"
+    "c-one center c-thr"
+    "c-one c-six c-six";
+}
+
+.medium {
+  display: grid;
+  grid-template-rows: 2fr 1fr 1fr 2fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "c-one c-two c-thr"
+    "c-one center c-thr"
+    "c-eig center c-six"
+    "c-eig c-sev c-six";
+}
+
+.hard {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "c-one c-two c-thr"
+    "c-eig center c-fou"
+    "c-sev c-six c-fiv";
+}
+
+.center {
+  border-radius: 50%;
+  grid-area: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle {
+  position: absolute;
+  width: 24%;
+  height: 45vh;
+  background-color: #fffffc;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+#c-one {
+  background-color: var(--red);
+  grid-area: c-one;
+}
+
+#c-two {
+  background-color: var(--ora);
+  grid-area: c-two;
+}
+#c-thr {
+  background-color: var(--yel);
+  grid-area: c-thr;
+}
+#c-fou {
+  background-color: var(--gre);
+  grid-area: c-fou;
+}
+#c-fiv {
+  background-color: var(--tea);
+  grid-area: c-fiv;
+}
+#c-six {
+  background-color: var(--blu);
+  grid-area: c-six;
+}
+#c-sev {
+  background-color: var(--pur);
+  grid-area: c-sev;
+}
+#c-eig {
+  background-color: var(--pin);
+  grid-area: c-eig;
+}
+
+.clear {
+  display: none;
 }
