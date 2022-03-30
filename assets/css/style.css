@@ -261,13 +261,23 @@ main {
   position: absolute;
   width: 24%;
   height: 45vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: #fffffc;
   border-radius: 50%;
   z-index: 2;
 }
 
+.circle p {
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .on {
-  opacity: 0.5;
+  opacity: 0.4;
   transition: 500ms;
 }
 

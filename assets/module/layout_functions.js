@@ -1,6 +1,6 @@
 //// Imports
 import { ColorIDs } from "./support.js";
-import { checkMatch } from "./game.js";
+import { Time, checkMatch } from "./game.js";
 
 //// Global Variables
 const Board = document.getElementById("board");
@@ -24,11 +24,23 @@ function emptyBoard(parent) {
   if (!isItEmpty) parent.innerHTML = "";
 }
 
-function blinker() {
-  let e = this;
-  let cl = e.classList;
-  cl.toggle("on");
-  cl.toggle("off");
+function blinker(id) {
+  const color = document.getElementById(id);
+  const cL = color.classList;
+  cL.toggle("on");
+  cL.toggle("off");
+}
+
+function userBlinker() {
+  let id = this.id;
+  console.log(Time);
+  setTimeout(blinker, 0, id);
+  setTimeout(blinker, 600, id);
+}
+
+function messageBlinker(id) {
+  const message = document.getElementById(id);
+  message.classList.toggle("clear");
 }
 
 function showGame(parent, difficulty) {
@@ -40,6 +52,26 @@ function showGame(parent, difficulty) {
     if (id == "center") {
       let circle = document.createElement("div");
       circle.classList.add("circle");
+
+      let gReady = document.createElement("p");
+      gReady.id = "g-ready";
+      gReady.classList.add("clear");
+      gReady.innerText = "Preste atenção à sequência";
+
+      let yTurn = document.createElement("p");
+      yTurn.id = "y-turn";
+      yTurn.classList.add("clear");
+      yTurn.innerText = "Repita a sequência\nna ordem correta";
+
+      let wait = document.createElement("p");
+      wait.id = "wait";
+      wait.classList.add("clear");
+      wait.innerText = "Acertou!\n";
+
+      circle.appendChild(wait);
+      circle.appendChild(gReady);
+      circle.appendChild(yTurn);
+
       color.classList.add(`${id}`);
       color.appendChild(circle);
       parent.appendChild(color);
@@ -48,6 +80,7 @@ function showGame(parent, difficulty) {
       color.classList.add("option");
       color.classList.add("off");
       color.addEventListener("click", checkMatch);
+      color.addEventListener("click", userBlinker);
       parent.appendChild(color);
     }
   });
@@ -57,4 +90,4 @@ function showGame(parent, difficulty) {
 }
 
 //// Export
-export { Diffs, getDiff };
+export { Diffs, getDiff, blinker, messageBlinker };
