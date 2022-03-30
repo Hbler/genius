@@ -1,8 +1,17 @@
 //// Objects + Arrays
-const Difficulties = {
-  normal: 4,
-  medium: 8,
-  hard: 8,
+const PossibleColors = {
+  normal: ["c-one", "c-thr", "c-fou", "c-six"],
+  medium: ["c-two", "c-thr", "c-fou", "c-six", "c-sev", "c-eig"],
+  hard: [
+    "c-one",
+    "c-two",
+    "c-thr",
+    "c-fou",
+    "c-fiv",
+    "c-six",
+    "c-sev",
+    "c-eig",
+  ],
 };
 
 const ColorIDs = [
@@ -17,4 +26,4 @@ const ColorIDs = [
   "c-eig",
 ];
 
-export { Difficulties, ColorIDs };
+export { PossibleColors, ColorIDs };

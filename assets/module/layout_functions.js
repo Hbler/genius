@@ -22,6 +22,13 @@ function emptyBoard(parent) {
   if (!isItEmpty) parent.innerHTML = "";
 }
 
+function blinker() {
+  let e = this;
+  let cl = e.classList;
+  cl.toggle("on");
+  cl.toggle("off");
+}
+
 function showGame(parent, difficulty) {
   emptyBoard(parent);
   const classList = parent.classList;
@@ -36,7 +43,9 @@ function showGame(parent, difficulty) {
       parent.appendChild(color);
     } else {
       color.id = id;
-      //   color.addEventListener('click', checkOrder) - tem que criar essa função
+      color.classList.add("option");
+      color.classList.add("off");
+      color.addEventListener("click", blinker);
       parent.appendChild(color);
     }
   });
