@@ -48,6 +48,7 @@ header {
   align-items: center;
   justify-content: space-around;
   box-sizing: border-box;
+  background-color: #fffffc;
   box-shadow: 10px 1px 15px 0px #bebebe9f;
   -webkit-box-shadow: 10px 1px 15px 0px #bebebe9f;
   -moz-box-shadow: 10px 1px 15px 0px #bebebe9f;
@@ -147,8 +148,8 @@ main {
   grid-template-rows: 2fr 1fr 1fr 2fr;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
-    "c-one c-two c-thr"
-    "c-one center c-thr"
+    "c-fou c-thr c-two"
+    "c-fou center c-two"
     "c-eig center c-six"
     "c-eig c-sev c-six";
 }
