@@ -1,11 +1,13 @@
 //// Imports
 import { ColorIDs } from "./support.js";
+import { checkMatch } from "./game.js";
 
 //// Global Variables
 const Board = document.getElementById("board");
 const Diffs = document.getElementsByName("difficulty");
 
-Diffs.forEach((x) => x.addEventListener("click", getDiff));
+//// Listeners
+Diffs.forEach((d) => d.addEventListener("click", getDiff));
 
 //// Functions
 function getDiff() {
@@ -45,7 +47,7 @@ function showGame(parent, difficulty) {
       color.id = id;
       color.classList.add("option");
       color.classList.add("off");
-      color.addEventListener("click", blinker);
+      color.addEventListener("click", checkMatch);
       parent.appendChild(color);
     }
   });
@@ -54,4 +56,5 @@ function showGame(parent, difficulty) {
   classList.add(difficulty);
 }
 
-export { getDiff };
+//// Export
+export { Diffs, getDiff };
