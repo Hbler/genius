@@ -118,7 +118,8 @@ header h1 {
 
 #score-board {
   width: 75%;
-  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
 }
 
 #about {
