@@ -1,6 +1,6 @@
 //// Imports
 import { PossibleColors } from "./support.js";
-import { Diffs, blinker, messageBlinker } from "./layout_functions.js";
+import { Diffs, Time, blinker, messageBlinker } from "./layout_functions.js";
 import { currentSequence } from "./main.js";
 
 //// Global Variables
@@ -8,6 +8,7 @@ import { currentSequence } from "./main.js";
 const Board = document.getElementById("board");
 const Score = document.getElementById("score-board");
 const Summary = document.getElementById("summary");
+const sMessage = document.getElementById("sum-message");
 /// Buttons
 const StartGame = document.getElementById("start");
 const Reset = document.getElementById("reset");
@@ -17,7 +18,6 @@ const NewGame = document.getElementById("new");
 let playerClick = 0;
 let Round = 1;
 let Points = 0;
-let Time = 1000;
 
 //// Functions
 function randomSequecer(cS) {
@@ -60,10 +60,16 @@ function gameMessages() {
   }
 }
 
+function createSummary() {
+  sMessage.innerHTML = "";
+  sMessage.innerHTML = `<h3>Fim da Partida</h3><p>Nessa partida você chegou na ${Round}ª rodada!</p><p>E conseguiu ${Points} pontos</p><p>Agora você pode <span>tentar novamente</span> em uma nova partida na mesma ou em outra dificuldade, ou <span>zerar o placar</span> e começar um novo jogo.</p>`;
+}
+
 function checkMatch() {
   const colorClicked = this.id;
   let cS = currentSequence;
   let pC = playerClick;
+
   if (colorClicked === cS[pC]) {
     playerClick++;
     if (pC === cS.length - 1) {
@@ -72,15 +78,24 @@ function checkMatch() {
       play();
     }
   } else {
+    createSummary();
     Summary.classList.toggle("clear");
   }
 }
 
 function play() {
+  // Setup
+  if (!Summary.classList.contains("clear")) {
+    Summary.classList.toggle("clear");
+    currentSequence.splice(0, currentSequence.length);
+    playerClick = 0;
+  }
+
+  // Gameplay
   randomSequecer(currentSequence);
   gameMessages();
   showSequence(currentSequence);
 }
 
 //// Export
-export { Score, Time, checkMatch, play };
+export { Score, StartGame, TryAgain, checkMatch, play };

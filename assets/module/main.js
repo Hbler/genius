@@ -1,6 +1,6 @@
 //// Imports
 import { getDiff } from "./layout_functions.js";
-import { play, Score } from "./game.js";
+import { Score, StartGame, TryAgain, play } from "./game.js";
 
 //// Global Variables
 const Points = Score.childNodes[1];
@@ -9,10 +9,12 @@ const Rounds = Score.childNodes[3];
 let currentRound = +Rounds.innerText.split(" ")[1];
 const currentSequence = [];
 
+//// Listeners
+StartGame.addEventListener("click", play);
+TryAgain.addEventListener("click", play);
+
 //// Functions
 getDiff();
-
-play();
 
 console.log(currentPoints, currentRound);
 

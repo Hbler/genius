@@ -1,10 +1,12 @@
 //// Imports
 import { ColorIDs } from "./support.js";
-import { Time, checkMatch } from "./game.js";
+import { checkMatch } from "./game.js";
+import { currentSequence } from "./main.js";
 
 //// Global Variables
 const Board = document.getElementById("board");
 const Diffs = document.getElementsByName("difficulty");
+let Time = 1000;
 
 //// Listeners
 Diffs.forEach((d) => d.addEventListener("click", getDiff));
@@ -16,6 +18,19 @@ function getDiff() {
     if (dif.checked) difficulty = dif.value;
   }
 
+  switch (difficulty) {
+    case "noraml":
+      Time = 1000;
+      break;
+    case "medium":
+      Time = 800;
+      break;
+    case "hard":
+      Time = 600;
+      break;
+  }
+
+  currentSequence.splice(0, currentSequence.length);
   showGame(Board, difficulty);
 }
 
@@ -33,7 +48,6 @@ function blinker(id) {
 
 function userBlinker() {
   let id = this.id;
-  console.log(Time);
   setTimeout(blinker, 0, id);
   setTimeout(blinker, 600, id);
 }
@@ -90,4 +104,4 @@ function showGame(parent, difficulty) {
 }
 
 //// Export
-export { Diffs, getDiff, blinker, messageBlinker };
+export { Diffs, Time, getDiff, blinker, messageBlinker };
