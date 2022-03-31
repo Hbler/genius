@@ -129,6 +129,8 @@ function checkMatch() {
 }
 
 function reset() {
+  currentPoints = 0;
+  currentRound = 1;
   Points.innerText = "Pontos: 000";
   Rounds.innerText = "Rodada: 1";
 }
@@ -145,6 +147,7 @@ function play() {
       checkForClear(Reset, "contain");
       checkForClear(Rounds, "contain");
       currentSequence.splice(0, currentSequence.length);
+      currentRound = 1;
       Rounds.innerText = "Rodada: 1";
       playerClick = 0;
     }
