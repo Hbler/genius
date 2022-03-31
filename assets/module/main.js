@@ -16,3 +16,4 @@ getDiff();
 
 //// Export
 export { currentSequence };
+

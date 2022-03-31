@@ -29,6 +29,9 @@ function randomSequecer(cS) {
 }
 
 function showSequence(arr) {
+  // Audios botao inicial
+  let audioSi = new Audio("../audio/inicio.mp3");
+
   let t;
   playerClick === 0 ? (t = Time + 3000) : (t = Time);
 
@@ -37,6 +40,7 @@ function showSequence(arr) {
     setTimeout(blinker, t + 600, c);
     t += Time;
   });
+  audioSi.play()
 }
 
 function gameMessages() {
@@ -109,6 +113,9 @@ function createSummary() {
 }
 
 function checkMatch() {
+  // Audios click cores
+  let audioSi = new Audio("../audio/si.wav");
+
   const colorClicked = this.id;
   let cS = currentSequence;
   let pC = playerClick;
@@ -126,6 +133,7 @@ function checkMatch() {
     createSummary();
     Summary.classList.toggle("clear");
   }
+  audioSi.play()
 }
 
 function reset() {
@@ -169,6 +177,7 @@ function play() {
   gameMessages();
   showSequence(currentSequence);
 }
+
 
 //// Export
 export { Score, StartGame, TryAgain, Reset, NewGame, checkMatch, play };
