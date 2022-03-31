@@ -40,7 +40,7 @@ function showSequence(arr) {
     setTimeout(blinker, t + 600, c);
     t += Time;
   });
-  audioSi.play()
+  audioSi.play();
 }
 
 function gameMessages() {
@@ -113,9 +113,6 @@ function createSummary() {
 }
 
 function checkMatch() {
-  // Audios click cores
-  let audioSi = new Audio("../audio/si.wav");
-
   const colorClicked = this.id;
   let cS = currentSequence;
   let pC = playerClick;
@@ -133,7 +130,6 @@ function checkMatch() {
     createSummary();
     Summary.classList.toggle("clear");
   }
-  audioSi.play()
 }
 
 function reset() {
@@ -177,7 +173,6 @@ function play() {
   gameMessages();
   showSequence(currentSequence);
 }
-
 
 //// Export
 export { Score, StartGame, TryAgain, Reset, NewGame, checkMatch, play };

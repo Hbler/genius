@@ -40,13 +40,10 @@ function emptyBoard(parent) {
 }
 
 function blinker(id) {
-  //Audio botoes luzes
-  let audioSi = new Audio("../audio/si.wav");
   const color = document.getElementById(id);
   const cL = color.classList;
   cL.toggle("on");
   cL.toggle("off");
-  audioSi.play()
 }
 
 function userBlinker() {
@@ -101,7 +98,6 @@ function showGame(parent, difficulty) {
       parent.appendChild(color);
     }
   });
-  
 
   classList.remove(...classList);
   classList.add(difficulty);
