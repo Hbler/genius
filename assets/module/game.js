@@ -29,9 +29,6 @@ function randomSequecer(cS) {
 }
 
 function showSequence(arr) {
-  // Audios botao inicial
-  let audioSi = new Audio("../audio/inicio.mp3");
-
   let t;
   playerClick === 0 ? (t = Time + 3000) : (t = Time);
 
@@ -40,7 +37,6 @@ function showSequence(arr) {
     setTimeout(blinker, t + 600, c);
     t += Time;
   });
-  audioSi.play();
 }
 
 function gameMessages() {
