@@ -20,6 +20,7 @@ const NewGame = document.getElementById("new");
 /// Gameplay
 let Difficulty;
 let playerClick = 0;
+let matchPoints = 0;
 
 //// Functions
 function randomSequecer(cS) {
@@ -74,6 +75,7 @@ function updatePoints() {
   }
 
   currentPoints += roundPoint;
+  matchPoints += roundPoint;
 
   switch (true) {
     case currentPoints < 10:
@@ -105,7 +107,7 @@ function checkForClear(node, state) {
 
 function createSummary() {
   sMessage.innerHTML = "";
-  sMessage.innerHTML = `<h3>Fim da Partida</h3><p>Nessa partida você chegou na ${currentRound}ª rodada!</p><p>E conseguiu ${currentPoints} pontos</p><p>Agora você pode <span>tentar novamente</span> em uma nova partida, na mesma ou em outra dificuldade, e continuar pontuando...</p> <p>Ou <span>zerar o placar</span> e começar um novo jogo.</p>`;
+  sMessage.innerHTML = `<h3>Fim da Partida</h3><p>Nessa partida você chegou na ${currentRound}ª rodada!</p><p>E conseguiu ${matchPoints} pontos</p><p>Agora você pode <span>tentar novamente</span> em uma nova partida, na mesma ou em outra dificuldade, e continuar pontuando...</p> <p>Ou <span>zerar o placar</span> e começar um novo jogo.</p>`;
 }
 
 function checkMatch() {
@@ -129,6 +131,7 @@ function checkMatch() {
 }
 
 function reset() {
+  matchPoints = 0;
   currentPoints = 0;
   currentRound = 1;
   Points.innerText = "Pontos: 000";
@@ -148,6 +151,7 @@ function play() {
       checkForClear(Rounds, "contain");
       currentSequence.splice(0, currentSequence.length);
       currentRound = 1;
+      matchPoints = 0;
       Rounds.innerText = "Rodada: 1";
       playerClick = 0;
     }
